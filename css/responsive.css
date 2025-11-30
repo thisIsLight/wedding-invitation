@@ -72,7 +72,7 @@
 
 /* Sections - Mobile */
 section {
-  padding: var(--spacing-3xl) 0;
+  padding: var(--spacing-2xl) 0 0 0;
 }
 
 .container {
@@ -80,7 +80,7 @@ section {
 }
 
 .section-title {
-  font-size: var(--font-size-2xl);
+  font-size: var(--font-size-3xl);
   margin-bottom: var(--spacing-sm);
 }
 
@@ -177,7 +177,7 @@ section {
 
   /* Sections */
   section {
-    padding: var(--spacing-4xl) 0;
+    padding: var(--spacing-2xl) 0 0 0;
   }
 
   .container {
@@ -185,7 +185,7 @@ section {
   }
 
   .section-title {
-    font-size: var(--font-size-3xl);
+    font-size: var(--font-size-4xl);
     margin-bottom: var(--spacing-md);
   }
 
@@ -284,7 +284,7 @@ section {
 
   /* Sections */
   section {
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-2xl) 0 0 0;
   }
 
   .section-title {
@@ -387,7 +387,7 @@ section {
 
   /* Larger spacing for desktop */
   section {
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-2xl) 0 0 0;
   }
 
   /* Keep single column layout on all devices */
@@ -484,6 +484,6 @@ section {
 
   /* Reduce section padding */
   section {
-    padding: var(--spacing-2xl) 0;
+    padding: var(--spacing-2xl) 0 0 0;
   }
 }
