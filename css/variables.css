@@ -118,18 +118,42 @@
   --z-tooltip: 1070;
 }
 
-/* Dark mode variables (optional for future enhancement) */
+/* Force light mode - prevent dark mode from being applied */
+:root {
+  color-scheme: light only;
+  supported-color-schemes: light;
+}
+
+/* Override any dark mode preferences */
 @media (prefers-color-scheme: dark) {
   :root {
-    --color-text-primary: #f9fafb;
-    --color-text-secondary: #d1d5db;
-    --color-text-light: #9ca3af;
-    
-    --color-bg-primary: #111827;
-    --color-bg-secondary: #1f2937;
-    --color-bg-dark: #030712;
-    
-    --color-border: #374151;
-    --color-border-light: #1f2937;
+    /* Keep light mode colors even when dark mode is preferred */
+    color-scheme: light only;
+  }
+  
+  /* Force light backgrounds and text colors */
+  body,
+  html {
+    background-color: #ffffff !important;
+    color: #1f2937 !important;
+  }
+  
+  /* Ensure all sections maintain light backgrounds */
+  section,
+  .container,
+  .hero-section,
+  .services-section,
+  .event-timeline-section,
+  .dress-code-section,
+  .organizational-aspects-section,
+  .location-section,
+  footer {
+    background-color: #ffffff !important;
+    color: #1f2937 !important;
+  }
+  
+  /* Force light mode for all text elements */
+  h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, select {
+    color: inherit !important;
   }
 }

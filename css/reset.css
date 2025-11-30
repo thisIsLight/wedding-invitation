@@ -1,6 +1,17 @@
 /* CSS Reset */
 /* Based on modern CSS reset principles */
 
+/* Force light mode - prevent dark mode interference */
+:root {
+  color-scheme: light only !important;
+}
+
+html,
+body {
+  color-scheme: light only !important;
+  background-color: #ffffff !important;
+}
+
 *,
 *::before,
 *::after {
