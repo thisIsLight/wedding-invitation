@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Professional web agency delivering modern, responsive websites and digital solutions">
+  <meta name="format-detection" content="telephone=no">
+  
+  <title>Webgency - Modern Web Agency</title>
+  
+  <!-- DNS Prefetch for external domains -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <link rel="dns-prefetch" href="https://images.unsplash.com">
+  
+  <!-- Preconnect for performance (faster than dns-prefetch for known resources) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  
+  <!-- Google Fonts - Playfair Display, Tangerine, Beau Rivage, and Rufina for elegant typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&family=Tangerine:wght@400;700&family=Beau+Rivage&family=Rufina:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Preload hero image for faster LCP -->
+  <link rel="preload" as="image" href="assets/images/hero-image.jpeg" type="image/webp" fetchpriority="high">
+  
+  <!-- Critical CSS - Inline above-the-fold styles for faster initial render -->
+  <style>
+    /* Critical CSS for above-the-fold content */
+    body { 
+      margin: 0; 
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      display: flex;
+      justify-content: center;
+      background-color: #f5f5f5;
+    }
+    
+    /* Mobile-first centered container */
+    #main-content {
+      width: 100%;
+      max-width: 100%;
+      background: white;
+    }
+    
+    /* Desktop: Fixed width centered layout */
+    @media (min-width: 768px) {
+      #main-content {
+        max-width: 430px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+      }
+    }
+    
+    /* Hero Section Critical Styles */
+    .hero-section { position: relative; height: 758px; width: 100%; display: flex; align-items: flex-start; justify-content: center; padding: 2rem 1rem; overflow: hidden; }
+    .hero-background { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-image: url('assets/images/hero-image.jpeg'); background-size: cover; background-position: center; background-repeat: no-repeat; background-color: #f5f5f5; z-index: 1; border-radius: 25px; }
+    .hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 25%, rgba(255, 255, 255, 0.25) 40%, rgba(2, 2, 2, 0.3) 100%); z-index: 2; }
+    .hero-content { position: relative; z-index: 3; max-width: min(90%, 800px); width: 100%; padding: 0; text-align: center; }
+    .hero-meta { display: flex; justify-content: center; gap: 2rem; margin-bottom: 0.5rem; font-family: 'Tangerine', cursive; }
+    .hero-date, .hero-place { display: flex; flex-direction: column; align-items: center; gap: 0.1rem; }
+    .hero-divider { display: flex; justify-content: center; align-items: center; margin-bottom: 1.5rem; }
+    .decorative-line { max-width: 250px; width: 100%; height: auto; display: block; }
+    .meta-value { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: #2c2c2c; }
+    .meta-label { font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 400; color: #6a6a6a; text-transform: lowercase; }
+    .hero-names { font-family: 'Beau Rivage', cursive; font-size: 2.5rem; font-weight: 400; color: #4a4a4a; margin-bottom: 1.5rem; letter-spacing: 0.02em; }
+    .hero-heading { font-family: 'Rufina', serif; font-size: 1.5rem; font-weight: 400; color: #1a1a1a; margin-bottom: 1rem; line-height: 1.3; max-width: 240px; margin-left: auto; margin-right: auto; }
+    .hero-subtitle { font-family: 'Rufina', serif; font-size: 1rem; font-weight: 400; color: #4a4a4a; line-height: 1.6; max-width: 240px; margin-left: auto; margin-right: auto; }
+    
+    /* Respect user's motion preferences */
+    @media (prefers-reduced-motion: reduce) {
+      .hero-meta, .hero-names, .hero-heading, .hero-subtitle { opacity: 1 !important; animation: none !important; }
+    }
+  </style>
+  
+  <!-- Stylesheets - Load non-critical CSS asynchronously -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Main Content -->
+  <main id="main-content">
+    
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section" aria-labelledby="hero-names">
+      <div class="hero-background" role="img" aria-label="Wedding couple in Prague"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-meta">
+          <div class="hero-date">
+            <span class="meta-value">08.02.26</span>
+          </div>
+          <div class="hero-place">
+            <span class="meta-value">Kolar</span>
+          </div>
+        </div>
+        <div class="hero-divider">
+          <img src="assets/images/decorative-line.webp" alt="" class="decorative-line">
+        </div>
+        <h1 id="hero-names" class="hero-names">Keerthana & Sahil</h1>
+        <h2 class="hero-heading">We are inviting you to our wedding!</h2>
+        <p class="hero-subtitle">Let's celebrate the best day of our life together!</p>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section" aria-labelledby="services-title">
+      <div class="container">
+        <h2 id="services-title" class="section-title">Dear friends and family!</h2>
+        <p class="section-subtitle">This spring a very special and happy event is going to happen - our wedding.<br>It is impossible to imagine this day without our closest people. Thus, we are happy to invite you to join and share this wonderful occasion with us</p>
+        
+      </div>
+    </section>
+
+    <!-- Event Timeline Section -->
+    <section id="event-timeline" class="event-timeline-section" aria-labelledby="event-timeline-title">
+      <div class="container">
+        <h2 id="event-timeline-title" class="section-title">Event Timeline</h2>
+        
+        <div class="timeline-tables-wrapper">
+          <div class="timeline-table">
+            <div class="timeline-date">6 February</div>
+            
+            <table class="event-schedule">
+              <tbody>
+                <tr>
+                  <td class="time">01:00 PM</td>
+                  <td class="event-name">Haldi</td>
+                </tr>
+                
+                <tr>
+                  <td class="time">06:00 PM</td>
+                  <td class="event-name">Sangeet</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="timeline-table">
+            <div class="timeline-date">7 February</div>
+            
+            <table class="event-schedule">
+              <tbody>
+                <tr>
+                  <td class="time">06:30 PM</td>
+                  <td class="event-name">Reception</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="timeline-table">
+            <div class="timeline-date">8 February</div>
+            
+            <table class="event-schedule">
+              <tbody>
+                <tr>
+                  <td class="time">10:30 AM</td>
+                  <td class="event-name">Muhuratham</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event Image Section -->
+    <section class="event-image-section" aria-label="Wedding celebration">
+      <div class="event-image-background" role="img" aria-label="Wedding celebration"></div>
+      <div class="event-image-overlay"></div>
+    </section>
+
+    <!-- Dress Code Section -->
+    <section id="dress-code" class="dress-code-section" aria-labelledby="dress-code-title">
+      <div class="container">
+        <h2 id="dress-code-title" class="section-title">Dress Code</h2>
+        
+        <div class="accordion">
+          <!-- Accordion Item 1: Haldi -->
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>Haldi</span>
+              <svg class="accordion-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <p class="dress-code-intro">We would be very happy if your outfit is in the colours of the wedding theme.</p>
+              
+              <div class="color-palette">
+                <div class="color-swatch" style="background-color: #F5E6D3;" aria-label="Beige"></div>
+                <div class="color-swatch" style="background-color: #E8E8E8;" aria-label="Light Grey"></div>
+                <div class="color-swatch" style="background-color: #D4C4B0;" aria-label="Champagne"></div>
+                <div class="color-swatch" style="background-color: #6B6B6B;" aria-label="Grey"></div>
+                <div class="color-swatch" style="background-color: #2C2C2C;" aria-label="Black"></div>
+              </div>
+              
+              <div class="dress-code-content">
+                <div class="dress-code-item">
+                  <div class="dress-code-text">
+                    <h3>Men:</h3>
+                    <p>Suits, jackets, shirts, grey, champagne, black colours</p>
+                  </div>
+                  <div class="dress-code-photo polaroid">
+                    <img src="assets/images/dress-code-men.jpg" alt="Men's dress code example" loading="lazy">
+                  </div>
+                </div>
+                
+                <div class="dress-code-item">
+                  <div class="dress-code-photo polaroid large">
+                    <img src="assets/images/dress-code-women-group.jpg" alt="Women's dress code example" loading="lazy">
+                  </div>
+                </div>
+                
+                <div class="dress-code-item">
+                  <div class="dress-code-photo polaroid">
+                    <img src="assets/images/dress-code-women.jpg" alt="Women's dress code example" loading="lazy">
+                  </div>
+                  <div class="dress-code-text">
+                    <h3>Women:</h3>
+                    <p>Cocktail dresses or suits, champagne, grey colours.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion Item 2: Sangeet -->
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>Sangeet</span>
+              <svg class="accordion-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <p class="dress-code-intro">We would be very happy if your outfit is in the colours of the wedding theme.</p>
+              
+              <div class="color-palette">
+                <div class="color-swatch" style="background-color: #F5E6D3;" aria-label="Beige"></div>
+                <div class="color-swatch" style="background-color: #E8E8E8;" aria-label="Light Grey"></div>
+                <div class="color-swatch" style="background-color: #D4C4B0;" aria-label="Champagne"></div>
+                <div class="color-swatch" style="background-color: #6B6B6B;" aria-label="Grey"></div>
+                <div class="color-swatch" style="background-color: #2C2C2C;" aria-label="Black"></div>
+              </div>
+              
+              <div class="dress-code-content">
+                <div class="dress-code-item">
+                  <div class="dress-code-text">
+                    <h3>Men:</h3>
+                    <p>Suits, jackets, shirts, grey, champagne, black colours</p>
+                  </div>
+                  <div class="dress-code-photo polaroid">
+                    <img src="assets/images/dress-code-men.jpg" alt="Men's dress code example" loading="lazy">
+                  </div>
+                </div>
+                
+                <div class="dress-code-item">
+                  <div class="dress-code-photo polaroid large">
+                    <img src="assets/images/dress-code-women-group.jpg" alt="Women's dress code example" loading="lazy">
+                  </div>
+                </div>
+                
+                <div class="dress-code-item">
+                  <div class="dress-code-photo polaroid">
+                    <img src="assets/images/dress-code-women.jpg" alt="Women's dress code example" loading="lazy">
+                  </div>
+                  <div class="dress-code-text">
+                    <h3>Women:</h3>
+                    <p>Cocktail dresses or suits, champagne, grey colours.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion Item 3: Reception -->
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>Reception</span>
+              <svg class="accordion-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <p class="dress-code-intro">We would be very happy if your outfit is in the colours of the wedding theme.</p>
+              
+              <div class="color-palette">
+                <div class="color-swatch" style="background-color: #F5E6D3;" aria-label="Beige"></div>
+                <div class="color-swatch" style="background-color: #E8E8E8;" aria-label="Light Grey"></div>
+                <div class="color-swatch" style="background-color: #D4C4B0;" aria-label="Champagne"></div>
+                <div class="color-swatch" style="background-color: #6B6B6B;" aria-label="Grey"></div>
+                <div class="color-swatch" style="background-color: #2C2C2C;" aria-label="Black"></div>
+              </div>
+              
+              <div class="dress-code-content">
+                <div class="dress-code-item">
+                  <div class="dress-code-text">
+                    <h3>Men:</h3>
+                    <p>Suits, jackets, shirts, grey, champagne, black colours</p>
+                  </div>
+                  <div class="dress-code-photo polaroid">
+                    <img src="assets/images/dress-code-men.jpg" alt="Men's dress code example" loading="lazy">
+                  </div>
+                </div>
+                
+                <div class="dress-code-item">
+                  <div class="dress-code-photo polaroid large">
+                    <img src="assets/images/dress-code-women-group.jpg" alt="Women's dress code example" loading="lazy">
+                  </div>
+                </div>
+                
+                <div class="dress-code-item">
+                  <div class="dress-code-photo polaroid">
+                    <img src="assets/images/dress-code-women.jpg" alt="Women's dress code example" loading="lazy">
+                  </div>
+                  <div class="dress-code-text">
+                    <h3>Women:</h3>
+                    <p>Cocktail dresses or suits, champagne, grey colours.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Accordion Item 4: Muhurtham -->
+          <div class="accordion-item">
+            <button class="accordion-header" aria-expanded="false">
+              <span>Muhurtham</span>
+              <svg class="accordion-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </button>
+            <div class="accordion-content">
+              <p class="dress-code-intro">We would be very happy if your outfit is in the colours of the wedding theme.</p>
+              
+              <div class="color-palette">
+                <div class="color-swatch" style="background-color: #F5E6D3;" aria-label="Beige"></div>
+                <div class="color-swatch" style="background-color: #E8E8E8;" aria-label="Light Grey"></div>
+                <div class="color-swatch" style="background-color: #D4C4B0;" aria-label="Champagne"></div>
+                <div class="color-swatch" style="background-color: #6B6B6B;" aria-label="Grey"></div>
+                <div class="color-swatch" style="background-color: #2C2C2C;" aria-label="Black"></div>
+              </div>
+              
+              <div class="dress-code-content">
+                <div class="dress-code-item">
+                  <div class="dress-code-text">
+                    <h3>Men:</h3>
+                    <p>Suits, jackets, shirts, grey, champagne, black colours</p>
+                  </div>
+                  <div class="dress-code-photo polaroid">
+                    <img src="assets/images/dress-code-men.jpg" alt="Men's dress code example" loading="lazy">
+                  </div>
+                </div>
+                
+                <div class="dress-code-item">
+                  <div class="dress-code-photo polaroid large">
+                    <img src="assets/images/dress-code-women-group.jpg" alt="Women's dress code example" loading="lazy">
+                  </div>
+                </div>
+                
+                <div class="dress-code-item">
+                  <div class="dress-code-photo polaroid">
+                    <img src="assets/images/dress-code-women.jpg" alt="Women's dress code example" loading="lazy">
+                  </div>
+                  <div class="dress-code-text">
+                    <h3>Women:</h3>
+                    <p>Cocktail dresses or suits, champagne, grey colours.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Organizational Aspects Section -->
+    <section id="organizational-aspects" class="organizational-aspects-section" aria-labelledby="organizational-aspects-title">
+      <div class="container">
+        <h2 id="organizational-aspects-title" class="section-title">Have Queries ?</h2>
+        <p class="section-subtitle">If you have any questions, you can always contact us</p>
+        
+        <!-- Organizational Image with Overlay -->
+        <div class="org-image-container">
+          <div class="org-image-wrapper">
+            <img src="assets/images/org-image.jpeg" alt="Wedding couple" class="org-image" loading="lazy">
+            <div class="org-image-overlay">
+              <div class="org-image-content">
+                <p class="org-phone">9980883236 <br> 9242059111</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location-section" aria-labelledby="location-title">
+      <div class="container">
+        <h2 id="location-title" class="section-title">Location</h2>
+        <p class="section-subtitle">Where to find us</p>
+        
+        <div class="location-map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4147.256007910938!2d78.18566102437313!3d13.133072747519616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3badf13997cc48d1%3A0xc04f2ec1470bd623!2sSri%20Nandhini%20Palace!5e0!3m2!1sen!2sin!4v1764464089068!5m2!1sen!2sin" 
+                  width="600" 
+                  height="450" 
+                  style="border:0;" 
+                  allowfullscreen="" 
+                  loading="lazy" 
+                  referrerpolicy="no-referrer-when-downgrade"
+                  title="Sri Nandhini Palace Location">
+          </iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
+      <div class="container">
+        <p class="footer-text">May the force be with us.</p>
+      </div>
+    </footer>
+
+  </main>
+
+  <!-- JavaScript -->
+  <script src="js/utils.js" defer></script>
+  <script src="js/animations.js" defer></script>
+  <script src="js/navigation.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
