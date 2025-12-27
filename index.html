@@ -134,53 +134,83 @@
       <div class="container">
         <h2 id="event-timeline-title" class="section-title">Wedding Itinerary</h2>
         
-        <div class="timeline-tables-wrapper">
-          <div class="timeline-table">
-            <div class="timeline-date">6 February</div>
-            
-            <table class="event-schedule">
-              <tbody>
-                <tr>
-                  <td class="event-name">Haldi</td>
-                  <td class="time">12:00 PM</td>
-                </tr>
+        <!-- Tab Navigation -->
+        <div class="itinerary-tabs">
+          <button class="tab-button active" data-tab="bangalore">Bangalore</button>
+          <button class="tab-button" data-tab="lucknow">Lucknow</button>
+        </div>
+        
+        <!-- Tab Content -->
+        <div class="tab-content">
+          <!-- Bangalore Tab -->
+          <div id="bangalore" class="tab-panel active">
+            <div class="timeline-tables-wrapper">
+              <div class="timeline-table">
+                <div class="timeline-date">6 February</div>
                 
-                <tr>
-                  <td class="event-name">Sangeet</td>
-                  <td class="time">06:00 PM</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                <table class="event-schedule">
+                  <tbody>
+                    <tr>
+                      <td class="event-name">Haldi</td>
+                      <td class="time">12:00 PM</td>
+                    </tr>
+                    
+                    <tr>
+                      <td class="event-name">Sangeet</td>
+                      <td class="time">06:00 PM</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-          <div class="timeline-table">
-            <div class="timeline-date">7 February</div>
-            
-            <table class="event-schedule">
-              <tbody>
-                <tr>
-                  <td class="event-name">Varapooje</td>
-                  <td class="time">10:00 AM</td>
-                </tr>
-                <tr>
-                  <td class="event-name">Reception</td>
-                  <td class="time">06:30 PM</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+              <div class="timeline-table">
+                <div class="timeline-date">7 February</div>
+                
+                <table class="event-schedule">
+                  <tbody>
+                    <tr>
+                      <td class="event-name">Varapooje</td>
+                      <td class="time">10:00 AM</td>
+                    </tr>
+                    <tr>
+                      <td class="event-name">Reception</td>
+                      <td class="time">06:30 PM</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
 
-          <div class="timeline-table">
-            <div class="timeline-date">8 February</div>
-            
-            <table class="event-schedule">
-              <tbody>
-                <tr>
-                  <td class="event-name">Muhurtham</td>
-                  <td class="time">10:30 AM</td>
-                </tr>
-              </tbody>
-            </table>
+              <div class="timeline-table">
+                <div class="timeline-date">8 February</div>
+                
+                <table class="event-schedule">
+                  <tbody>
+                    <tr>
+                      <td class="event-name">Muhurtham</td>
+                      <td class="time">10:30 AM</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Lucknow Tab -->
+          <div id="lucknow" class="tab-panel">
+            <div class="timeline-tables-wrapper">
+              <div class="timeline-table">
+                <div class="timeline-date">13 February</div>
+                
+                <table class="event-schedule">
+                  <tbody>
+                    <tr>
+                      <td class="event-name">Reception</td>
+                      <td class="time">08:00 PM</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>

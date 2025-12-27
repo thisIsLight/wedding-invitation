@@ -920,6 +920,72 @@
   gap: var(--spacing-lg);
 }
 
+/* Itinerary Tabs */
+.itinerary-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  border-bottom: 2px solid #e5e5e5;
+}
+
+.tab-button {
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-family: 'Rufina', serif;
+  font-size: var(--font-size-lg);
+  font-weight: 400;
+  color: var(--color-text-secondary);
+  background: transparent;
+  border: none;
+  border-bottom: 3px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-base) var(--ease-smooth);
+  position: relative;
+  margin-bottom: -2px;
+}
+
+.tab-button:hover {
+  color: var(--color-text-primary);
+  background-color: #f9f9f9;
+}
+
+.tab-button.active {
+  color: var(--color-text-primary);
+  border-bottom-color: #2c2c2c;
+  font-weight: 700;
+}
+
+.tab-button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 4px;
+  border-radius: var(--radius-sm);
+}
+
+/* Tab Content */
+.tab-content {
+  position: relative;
+}
+
+.tab-panel {
+  display: none;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.tab-panel.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .timeline-table {
   max-width: 600px;
   margin: 0 auto;

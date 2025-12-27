@@ -205,6 +205,44 @@ if (document.readyState === 'loading') {
 }
 
 /**
+ * Tab Functionality for Itinerary Section
+ */
+function initItineraryTabs() {
+  const tabButtons = document.querySelectorAll('.tab-button');
+  const tabPanels = document.querySelectorAll('.tab-panel');
+  
+  if (tabButtons.length === 0 || tabPanels.length === 0) {
+    console.warn('Tab elements not found');
+    return;
+  }
+  
+  tabButtons.forEach(button => {
+    button.addEventListener('click', () => {
+      const targetTab = button.getAttribute('data-tab');
+      
+      // Remove active class from all buttons and panels
+      tabButtons.forEach(btn => btn.classList.remove('active'));
+      tabPanels.forEach(panel => panel.classList.remove('active'));
+      
+      // Add active class to clicked button and corresponding panel
+      button.classList.add('active');
+      const targetPanel = document.getElementById(targetTab);
+      if (targetPanel) {
+        targetPanel.classList.add('active');
+      }
+    });
+    
+    // Keyboard accessibility
+    button.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        button.click();
+      }
+    });
+  });
+}
+
+/**
  * Accordion Functionality
  */
 function initAccordion() {
@@ -240,7 +278,11 @@ function initAccordion() {
 
 // Initialize accordion when DOM is ready
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initAccordion);
+  document.addEventListener('DOMContentLoaded', () => {
+    initAccordion();
+    initItineraryTabs();
+  });
 } else {
   initAccordion();
+  initItineraryTabs();
 }
