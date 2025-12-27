@@ -141,6 +141,11 @@ section {
   font-size: 0.8rem !important;
 }
 
+/* Organizational Aspects - Mobile */
+.org-phone {
+  font-size: 2rem !important;
+}
+
 /* Footer - Mobile */
 .footer .container {
   flex-direction: column;
