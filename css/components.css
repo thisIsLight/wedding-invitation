@@ -759,7 +759,7 @@
   display: flex;
   justify-content: center;
   gap: var(--spacing-md);
-  margin-bottom: var(--spacing-3xl);
+  margin-bottom: var(--spacing-xl);
   flex-wrap: wrap;
 }
 
