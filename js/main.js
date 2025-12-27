@@ -7,6 +7,54 @@
 // These utilities are available from utils.js
 
 /**
+ * Welcome Popup Management
+ */
+function initWelcomePopup() {
+  const popupOverlay = document.getElementById('popup-overlay');
+  const enterButton = document.getElementById('popup-enter');
+  
+  if (!popupOverlay || !enterButton) {
+    console.warn('Popup elements not found');
+    return;
+  }
+  
+  // Show popup on page load
+  popupOverlay.style.display = 'flex';
+  
+  // Handle enter button click
+  enterButton.addEventListener('click', () => {
+    // Add fade out animation
+    popupOverlay.style.transition = 'opacity 0.5s ease-out';
+    popupOverlay.style.opacity = '0';
+    
+    // Remove popup after animation
+    setTimeout(() => {
+      popupOverlay.style.display = 'none';
+      // Start background audio after popup is closed
+      playBackgroundAudio();
+    }, 500);
+  });
+  
+  // Handle escape key to close popup
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && popupOverlay.style.display === 'flex') {
+      enterButton.click();
+    }
+  });
+  
+  // Add hover effect to button
+  enterButton.addEventListener('mouseenter', () => {
+    enterButton.style.transform = 'translateY(-2px)';
+    enterButton.style.boxShadow = '0 4px 12px rgba(60, 68, 53, 0.3)';
+  });
+  
+  enterButton.addEventListener('mouseleave', () => {
+    enterButton.style.transform = 'translateY(0)';
+    enterButton.style.boxShadow = 'none';
+  });
+}
+
+/**
  * Example: Debounced window resize handler
  * Useful for expensive operations that should only run after resizing stops
  */
@@ -36,10 +84,90 @@ if (typeof throttle !== 'undefined') {
 }
 
 /**
+ * Audio Management
+ */
+let backgroundAudio = null;
+let audioInitialized = false;
+
+/**
+ * Initialize background audio
+ */
+function initBackgroundAudio() {
+  if (audioInitialized) return;
+  
+  try {
+    backgroundAudio = new Audio('assets/audio/home-page-audio.mp3');
+    backgroundAudio.loop = true;
+    backgroundAudio.volume = 0.3; // Set to 30% volume for pleasant background music
+    
+    // Preload the audio
+    backgroundAudio.preload = 'auto';
+    
+    audioInitialized = true;
+    console.log('Background audio initialized');
+  } catch (error) {
+    console.warn('Failed to initialize background audio:', error);
+  }
+}
+
+/**
+ * Play background audio
+ */
+function playBackgroundAudio() {
+  if (!backgroundAudio || !audioInitialized) {
+    initBackgroundAudio();
+  }
+  
+  if (backgroundAudio) {
+    backgroundAudio.play().then(() => {
+      console.log('Background audio started playing');
+    }).catch(error => {
+      console.warn('Could not play background audio:', error);
+    });
+  }
+}
+
+/**
+ * Pause background audio
+ */
+function pauseBackgroundAudio() {
+  if (backgroundAudio && !backgroundAudio.paused) {
+    backgroundAudio.pause();
+    console.log('Background audio paused');
+  }
+}
+
+/**
+ * Set up automatic audio playback when hero image loads
+ */
+function setupAutoplayAudio() {
+  // Initialize audio first
+  initBackgroundAudio();
+  
+  // Don't auto-play until popup is closed - this will be called from popup close handler
+  
+  // Handle page visibility changes (pause when tab is hidden)
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      pauseBackgroundAudio();
+    } else if (audioInitialized && backgroundAudio) {
+      // Only resume if popup is not visible
+      const popup = document.getElementById('popup-overlay');
+      if (!popup || popup.style.display === 'none') {
+        playBackgroundAudio();
+      }
+    }
+  });
+}
+
+/**
  * Initialize application
  */
 function initApp() {
-  console.log('Webgency website initialized');
+  console.log('Wedding website initialized');
+  
+  // Initialize welcome popup first
+  initWelcomePopup();
   
   // Check if all components are loaded
   const componentsLoaded = {
@@ -49,6 +177,9 @@ function initApp() {
   };
   
   console.log('Components loaded:', componentsLoaded);
+  
+  // Initialize automatic audio playback (but don't start until popup is closed)
+  setupAutoplayAudio();
   
   // Performance monitoring
   if (window.performance && window.performance.timing) {
