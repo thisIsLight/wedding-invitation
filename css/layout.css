@@ -60,11 +60,7 @@ section {
   margin-bottom: 0;
 }
 
-/* Location Section */
-.location-section {
-  background: var(--color-bg-secondary);
-  margin-bottom: 0;
-}
+
 
 /* Portfolio Grid */
 .portfolio-section {
