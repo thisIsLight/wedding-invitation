@@ -749,6 +749,12 @@
   line-height: var(--line-height-normal);
 }
 
+/* Reduce spacing for the second dress code intro line */
+.dress-code-intro + .dress-code-intro {
+  margin-top: -var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
 .color-palette {
   display: flex;
   justify-content: center;
