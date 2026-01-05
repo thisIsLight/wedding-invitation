@@ -210,10 +210,43 @@ if (document.readyState === 'loading') {
 function initItineraryTabs() {
   const tabButtons = document.querySelectorAll('.tab-button');
   const tabPanels = document.querySelectorAll('.tab-panel');
+  const dressCodeSection = document.getElementById('dress-code');
   
   if (tabButtons.length === 0 || tabPanels.length === 0) {
     console.warn('Tab elements not found');
     return;
+  }
+  
+  // Function to toggle dress code section visibility
+  function toggleDressCodeSection(tabName) {
+    if (dressCodeSection) {
+      console.log('Toggling dress code section for tab:', tabName);
+      if (tabName === 'bangalore') {
+        // Show dress code section for Kolar (bangalore tab)
+        dressCodeSection.classList.remove('hidden');
+        dressCodeSection.style.display = 'block';
+        console.log('Dress code section shown');
+      } else {
+        // Hide dress code section for Lucknow
+        dressCodeSection.classList.add('hidden');
+        console.log('Dress code section hidden');
+        // Use setTimeout to allow CSS transition to complete before hiding
+        setTimeout(() => {
+          if (dressCodeSection.classList.contains('hidden')) {
+            dressCodeSection.style.display = 'none';
+          }
+        }, 300);
+      }
+    } else {
+      console.warn('Dress code section not found');
+    }
+  }
+  
+  // Set initial state - show dress code for default active tab (Kolar)
+  // Make sure the section is visible initially since Kolar tab is active by default
+  if (dressCodeSection) {
+    dressCodeSection.classList.remove('hidden');
+    dressCodeSection.style.display = 'block';
   }
   
   tabButtons.forEach(button => {
@@ -230,6 +263,9 @@ function initItineraryTabs() {
       if (targetPanel) {
         targetPanel.classList.add('active');
       }
+      
+      // Toggle dress code section based on selected tab
+      toggleDressCodeSection(targetTab);
     });
     
     // Keyboard accessibility
